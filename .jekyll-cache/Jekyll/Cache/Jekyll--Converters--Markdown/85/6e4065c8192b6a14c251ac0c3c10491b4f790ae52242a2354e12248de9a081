@@ -1,0 +1,349 @@
+I"�<hr />
+
+<p>#1.基础</p>
+<hr />
+
+<p>##1.1布局方式
+|布局方式|解释|
+|:—:|:—:|
+|自然布局|无任何修饰，自动向左|
+|响应布局|流动布局，采用浮动方法|
+|定位布局|相对于div标签定位|</p>
+<hr />
+
+<p>##1.2布局结构
+HTML5有三种典型布局结构
+|布局结构|应用场景|
+|:—:|:—:|
+|div-ul-li|分类导航或菜单|
+|table-tr-td|图文布局或显示数据|
+|frameset-frame|一个浏览器串口显示多个网页|</p>
+<hr />
+
+<p>##1.3布局属性
+无论采用何种布局方式和结构，都会用到CSS常用的布局属性功能，包括对象尺寸、边距、颜色背景、字体等</p>
+<hr />
+
+<p>##1.4布局工具
+布局工具有div、table、frameset、HTML5新元素和Bootstrap，Bootstrap是一个web前端框架</p>
+<hr />
+
+<hr />
+
+<p>#2.div-ul-li布局
+根据设计需求可以设计框的尺寸</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>DSP课程实验<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+        <span class="nt">div</span><span class="nc">.layout</span> <span class="p">{</span><span class="nl">border</span><span class="p">:</span><span class="m">2px</span> <span class="nb">solid</span> <span class="m">#ffffff</span><span class="p">;</span><span class="nl">padding</span><span class="p">:</span><span class="m">3px</span><span class="p">;</span><span class="nl">width</span><span class="p">:</span><span class="m">528px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span><span class="m">396px</span><span class="p">;</span><span class="nl">margin</span><span class="p">:</span><span class="nb">auto</span><span class="p">;</span><span class="nl">background-color</span><span class="p">:</span><span class="m">#e5dfdf</span><span class="p">}</span>
+        <span class="nt">ul</span><span class="nc">.hreflist</span> <span class="p">{</span><span class="nl">padding</span><span class="p">:</span><span class="m">0px</span><span class="p">;</span><span class="nl">margin</span><span class="p">:</span><span class="nb">auto</span><span class="p">;</span><span class="nl">width</span><span class="p">:</span><span class="m">528px</span><span class="p">;</span><span class="nl">overflow</span><span class="p">:</span><span class="nb">hidden</span><span class="p">}</span>
+        <span class="nt">ul</span><span class="nc">.hreflist</span> <span class="nt">li</span><span class="p">{</span><span class="nl">list-style-type</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span><span class="nl">float</span><span class="p">:</span><span class="nb">left</span><span class="p">;</span><span class="nl">padding</span><span class="p">:</span><span class="m">4px</span> <span class="m">8px</span><span class="p">;</span><span class="nl">width</span><span class="p">:</span><span class="m">160px</span><span class="p">;</span><span class="nl">text-decoration-style</span><span class="p">:</span><span class="nb">none</span><span class="p">}</span>
+        <span class="nt">ul</span><span class="nc">.hreflist</span> <span class="nt">li</span> <span class="nt">img</span><span class="p">{</span><span class="nl">display</span><span class="p">:</span><span class="nb">block</span><span class="p">;</span><span class="nl">width</span><span class="p">:</span><span class="m">160px</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span><span class="m">160px</span><span class="p">;</span><span class="nl">border</span><span class="p">:</span><span class="nb">none</span><span class="p">}</span>
+        <span class="nt">ul</span><span class="nc">.hreflist</span> <span class="nt">li</span> <span class="nt">span</span><span class="p">{</span><span class="nl">display</span><span class="p">:</span><span class="nb">block</span><span class="p">;</span><span class="nl">width</span><span class="p">:</span><span class="m">100%</span><span class="p">;</span><span class="nl">height</span><span class="p">:</span><span class="m">30px</span><span class="p">;</span><span class="nl">line-height</span><span class="p">:</span><span class="m">30px</span><span class="p">;</span><span class="nl">background</span><span class="p">:</span><span class="m">#ffffff</span><span class="p">;</span><span class="nl">text-align</span><span class="p">:</span><span class="nb">center</span><span class="p">;</span><span class="nl">text-decoration-style</span><span class="p">:</span><span class="nb">none</span><span class="p">}</span>
+        <span class="nt">a</span><span class="nd">:link</span> <span class="p">{</span><span class="nl">text-decoration</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span><span class="nl">color</span><span class="p">:</span><span class="no">black</span><span class="p">}</span>
+        <span class="nt">a</span><span class="nd">:hover</span><span class="p">{</span><span class="nl">text-decoration</span><span class="p">:</span><span class="nb">underline</span><span class="p">;</span><span class="nl">color</span><span class="p">:</span><span class="no">red</span><span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"layout"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"hreflist"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"实验一.pdf"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"5a22349010586bb1-8478480ac02d3810-8069f1de41b401f7fbf61fd08384accd.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;span&gt;</span>实验一<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"实验二.pdf"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"5a22349010586bb1-873f74c49cdd8d90-642b56a90fbd5f90484d0a61c2164937.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;span&gt;</span>实验二<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"实验三.pdf"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"b37d57d0bbfab194-9429aa682b55e7aa-19c5cec3537e8bc9d09acabc6629652a.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;span&gt;</span>实验三<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"dsp-exp-basic-lab1.pdf"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"5a22349010586bb1-8478480ac02d3810-8069f1de41b401f7fbf61fd08384accd.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;span&gt;</span>实验一要求<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"dsp-exp-basic-lab2.pdf"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"5a22349010586bb1-873f74c49cdd8d90-642b56a90fbd5f90484d0a61c2164937.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;span&gt;</span>实验二要求<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>
+                <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"dsp-exp-basic-lab3.pdf"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"b37d57d0bbfab194-9429aa682b55e7aa-19c5cec3537e8bc9d09acabc6629652a.jpg"</span> <span class="na">alt=</span><span class="s">""</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;span&gt;</span>实验三要求<span class="nt">&lt;/span&gt;</span>
+                <span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<hr />
+
+<p>##3.table-tr-td布局
+table-tr-td布局的分区基于表进行，一级分区指直接隶属于body元素的table，被称为主表。二级分区指隶属于主表内的一个td的表。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>中科大信院二班<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+        <span class="nt">table</span><span class="p">{</span>
+            <span class="nl">width</span><span class="p">:</span><span class="m">100%</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nf">#school</span> <span class="p">{</span>
+            <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Microsoft YaHei'</span><span class="p">;</span>
+            <span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+            <span class="nl">font-weight</span><span class="p">:</span> <span class="m">400</span><span class="p">;</span>
+            <span class="nl">color</span><span class="p">:</span> <span class="m">#3257a2</span><span class="p">;</span>
+            <span class="nl">line-height</span><span class="p">:</span> <span class="m">22px</span><span class="p">;</span>
+            <span class="nl">letter-spacing</span><span class="p">:</span> <span class="m">.5em</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nf">#name</span> <span class="p">{</span>
+        <span class="nl">font-family</span><span class="p">:</span><span class="s2">'Microsoft YaHei'</span><span class="p">;</span><span class="nl">font-size</span><span class="p">:</span><span class="m">30px</span><span class="p">;</span><span class="nl">font-weight</span><span class="p">:</span><span class="m">700</span><span class="p">;</span>
+        <span class="nl">color</span><span class="p">:</span><span class="m">#3257a2</span><span class="p">;</span>
+        <span class="nl">line-height</span><span class="p">:</span><span class="m">40px</span><span class="p">;</span>
+        <span class="nl">letter-spacing</span><span class="p">:</span><span class="m">1em</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nc">.navtext</span> <span class="p">{</span>
+            <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Microsoft YaHei'</span><span class="p">;</span>
+            <span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+            <span class="nl">font-weight</span><span class="p">:</span> <span class="m">400</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nf">#navigation</span> <span class="nt">td</span> <span class="p">{</span><span class="nl">border-bottom</span><span class="p">:</span><span class="m">1px</span> <span class="nb">solid</span> <span class="m">#808080</span><span class="p">}</span>
+        <span class="nf">#navigation</span> <span class="nt">a</span> <span class="p">{</span>
+            <span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Microsoft YaHei'</span><span class="p">;</span>
+            <span class="nl">font-size</span><span class="p">:</span> <span class="m">20px</span><span class="p">;</span>
+            <span class="nl">font-weight</span><span class="p">:</span> <span class="m">500</span><span class="p">;</span>
+            <span class="nl">color</span><span class="p">:</span><span class="no">black</span><span class="p">;</span>
+            <span class="nl">line-height</span><span class="p">:</span><span class="m">16px</span><span class="p">;</span>
+            <span class="nl">letter-spacing</span><span class="p">:</span><span class="m">.1em</span><span class="p">;</span>
+            <span class="nl">text-decoration</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span>
+            <span class="nl">display</span><span class="p">:</span><span class="nb">block</span><span class="p">;</span>
+            <span class="nl">padding</span><span class="p">:</span><span class="m">8px</span> <span class="m">6px</span> <span class="m">8px</span> <span class="m">22px</span><span class="p">;</span>
+        <span class="p">}</span>
+            <span class="nf">#navigation</span> <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+            <span class="nl">color</span><span class="p">:</span><span class="m">#3257a2</span><span class="p">;</span>
+            <span class="nl">font-weight</span><span class="p">:</span><span class="nb">bold</span><span class="p">;</span>
+            <span class="nl">background-color</span><span class="p">:</span><span class="no">white</span><span class="p">;</span>
+            <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;table</span> <span class="na">cellpadding=</span><span class="s">"0"</span> <span class="na">cellspacing=</span><span class="s">"0"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">style=</span><span class="s">"background-color:#70e4e8"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"150"</span> <span class="na">rowspan=</span><span class="s">"2"</span> <span class="na">colspan=</span><span class="s">"2"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"logo1702.png"</span> <span class="na">alt=</span><span class="s">"班徽"</span> <span class="na">width=</span><span class="s">"150"</span> <span class="na">height=</span><span class="s">"150"</span> <span class="na">border=</span><span class="s">"0"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"350"</span> <span class="na">colspan=</span><span class="s">"2"</span> <span class="na">height=</span><span class="s">"50"</span>  <span class="na">nowrap=</span><span class="s">"nowrap"</span> <span class="na">valign=</span><span class="s">"bottom"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;pre</span> <span class="na">id=</span><span class="s">"school"</span><span class="nt">&gt;</span>中国科学技术大学<span class="nt">&lt;/pre&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"200"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"sistlogo_w.png"</span> <span class="na">alt=</span><span class="s">"中科大信院"</span> <span class="na">width=</span><span class="s">"200"</span> <span class="na">height=</span><span class="s">"50"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">style=</span><span class="s">"background-color:#70e4e8"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">height=</span><span class="s">"100"</span> <span class="na">colspan=</span><span class="s">"2"</span> <span class="na">nowrap=</span><span class="s">"nowrap"</span>  <span class="na">valign=</span><span class="s">"top"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;pre</span> <span class="na">id=</span><span class="s">"name"</span><span class="nt">&gt;</span>信息学院本科1702班<span class="nt">&lt;/pre&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr</span> <span class="na">style=</span><span class="s">"background-color:#e1ebeb"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">colspan=</span><span class="s">"5"</span> <span class="na">style=</span><span class="s">"height:10px"</span><span class="nt">&gt;&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">" 120"</span> <span class="na">height=</span><span class="s">"700"</span> <span class="na">valign=</span><span class="s">"top"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;br/&gt;</span>
+                <span class="nt">&lt;table</span> <span class="na">border=</span><span class="s">"0"</span> <span class="na">cellpadding=</span><span class="s">"0"</span> <span class="na">cellspacing=</span><span class="s">"0"</span> <span class="na">width=</span><span class="s">"125"</span> <span class="na">id=</span><span class="s">"navigation"</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;tr&gt;&lt;td</span> <span class="na">width=</span><span class="s">"120"</span><span class="nt">&gt;&lt;pre</span> <span class="na">class=</span><span class="s">"navtext"</span><span class="nt">&gt;</span>班级信息<span class="nt">&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;</span>
+                    <span class="nt">&lt;tr&gt;&lt;td</span> <span class="na">width=</span><span class="s">"120"</span><span class="nt">&gt;&lt;pre</span> <span class="na">class=</span><span class="s">"navtext"</span><span class="nt">&gt;</span>班级活动<span class="nt">&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;</span>
+                    <span class="nt">&lt;tr&gt;&lt;td</span> <span class="na">width=</span><span class="s">"120"</span><span class="nt">&gt;&lt;pre</span> <span class="na">class=</span><span class="s">"navtext"</span><span class="nt">&gt;</span>班级公告<span class="nt">&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;</span>
+                    <span class="nt">&lt;tr&gt;&lt;td</span> <span class="na">width=</span><span class="s">"120"</span><span class="nt">&gt;&lt;pre</span> <span class="na">class=</span><span class="s">"navtext"</span><span class="nt">&gt;</span>新闻稿<span class="nt">&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;</span>
+                <span class="nt">&lt;/table&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"30"</span><span class="nt">&gt;&lt;/td&gt;</span>
+            <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"100%"</span> <span class="na">colspan=</span><span class="s">"3"</span><span class="na">valign=</span><span class="s">"top"</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;</span>
+                <span class="nt">&lt;h1</span> <span class="na">style=</span><span class="s">"text-align:center"</span><span class="nt">&gt;</span>舌尖上的2020<span class="nt">&lt;/h1&gt;</span>
+                <span class="nt">&lt;p&gt;</span>2019年12月31日，信息学院本科17级2班
+                        于科技实验楼会议室举办了“舌尖上的2020”主题晚会。
+                        本次晚会由杨昊、卢志颖同学进行主持，准备了吃货飞花令、生死时速、小说家、
+                        演技炸裂、材猜菜等五个游戏环节，以及《二零三》、《一路向北》、《我怀念的》、
+                        《同桌的你》等歌曲节目，以及作为主题的美食自制环节。同学们来到这里，
+                        在2019年的最后一晚，共享一场游戏与美食的盛宴，迎接崭新的2020年。
+                <span class="nt">&lt;/p&gt;</span>
+            <span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<hr />
+
+<p>#4.frameset布局
+使用框架可以在同一个浏览器窗口中显示多个页面，每份HTML文档称为一个框架，并且每个框架独立于其他框架。但使用框架的缺点时开发人员必须同时跟踪更多HTML文档，而且很难打印整张页面。在frameset中使用ifame实现常规的一些分栏布局。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--frameset.html--&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;frameset</span> <span class="na">cols=</span><span class="s">"25%,75%"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;frame</span> <span class="na">name=</span><span class="s">"left"</span> <span class="na">src=</span><span class="s">"left.html"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;frame</span> <span class="na">name=</span><span class="s">"right"</span> <span class="na">src=</span><span class="s">"right.html"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/frameset&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--left.html--&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>frameset-left<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;p&gt;</span>这是左半部分<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">target=</span><span class="s">"right"</span> <span class="na">href=</span><span class="s">"right_2.html"</span><span class="nt">&gt;</span>切换右半部分<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--right.html--&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>frameset-right<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;p&gt;</span>这里是右半部分<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--right_2html--&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>framset-right_2<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;p&gt;</span>这是切换后的右半部分<span class="nt">&lt;p&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<hr />
+
+<p>#5.Bootstrap布局</p>
+
+<p>bootstrap是一个快速开发web的应用程序和网站的前端框架。其提供了基本结构、CSS特性、组件和插件。在编写html文件时使用bootstrap库中的样式或组件可以降低代码量提高效率。
+可以参考https://v3.bootcss.com/getting-started/#download和https://www.runoob.com/bootstrap/bootstrap-tutorial.html</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"zh-CN"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Bootstrap 101 Template<span class="nt">&lt;/title&gt;</span>
+    <span class="c">&lt;!-- Bootstrap --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 --&gt;</span>
+    <span class="c">&lt;!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 --&gt;</span>
+    <span class="c">&lt;!--[if lt IE 9]&gt;
+     &lt;script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"&gt;&lt;/script&gt;        
+      &lt;script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"nav nav-pills"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">onclick=</span><span class="s">"ActiveXObject();"</span><span class="nt">&gt;</span>SVN<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>iOS<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>VB.Net<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Java<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+        <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>PHP<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+    <span class="c">&lt;!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="c">&lt;!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<hr />
+
+<p>#6.HTML5新元素布局</p>
+
+<p>|标签|描述|
+|:—:|:—:|
+|header|定义文档或节的页眉|
+|nav|定义导航链接的容器|
+|section|定义文档中的节|
+|article|定义独立的自包含文章|
+|asiide|定义内容之外的内容(侧栏)|
+|footer|定义文档或节的页脚|
+|details|定义额外细节|
+|summary|定义detail元素的标题|</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;&lt;/title&gt;</span>
+    <span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"text/css"</span><span class="nt">&gt;</span>
+        <span class="nt">header</span><span class="o">,</span><span class="nt">footer</span><span class="p">{</span>
+            <span class="nl">background-color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span>
+            <span class="nl">color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+            <span class="nl">clear</span><span class="p">:</span><span class="nb">both</span><span class="p">;</span>
+            <span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+            <span class="nl">padding</span><span class="p">:</span><span class="m">5px</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">nav</span> <span class="p">{</span>
+            <span class="nl">background-color</span><span class="p">:</span> <span class="m">#eeeeee</span><span class="p">;</span>
+            <span class="nl">height</span><span class="p">:</span> <span class="m">300px</span><span class="p">;</span>
+            <span class="nl">width</span><span class="p">:</span> <span class="m">100px</span><span class="p">;</span>
+            <span class="nl">float</span><span class="p">:</span> <span class="nb">left</span><span class="p">;</span>
+            <span class="nl">line-height</span><span class="p">:</span> <span class="m">30px</span><span class="p">;</span>
+            <span class="nl">padding</span><span class="p">:</span> <span class="m">5px</span>
+        <span class="p">}</span>
+        <span class="nt">ul</span><span class="p">{</span>
+            <span class="nl">padding-left</span><span class="p">:</span><span class="m">0px</span><span class="p">;</span>
+            <span class="nl">margin-left</span><span class="p">:</span><span class="m">6px</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">ul</span><span class="o">&gt;</span><span class="nt">li</span><span class="p">{</span>
+            <span class="nl">list-style-type</span><span class="p">:</span><span class="nb">none</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;header&gt;&lt;h1&gt;</span>Hello World！<span class="nt">&lt;/h1&gt;&lt;/header&gt;</span>
+    <span class="nt">&lt;nav&gt;</span>
+        <span class="nt">&lt;ul&gt;</span>
+            <span class="nt">&lt;li&gt;</span>A<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>B<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li&gt;</span>C<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+    <span class="nt">&lt;section&gt;</span>
+        hhhhhhhh
+    <span class="nt">&lt;/section&gt;</span>
+    <span class="nt">&lt;footer&gt;</span>copyright<span class="nt">&lt;/footer&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<hr />
+
+<blockquote>
+  <p>最后附上GitHub：<a href="https://github.com/zht1999/Algorithm_sort">https://github.com/zht1999/Algorithm_sort</a></p>
+</blockquote>
+:ET

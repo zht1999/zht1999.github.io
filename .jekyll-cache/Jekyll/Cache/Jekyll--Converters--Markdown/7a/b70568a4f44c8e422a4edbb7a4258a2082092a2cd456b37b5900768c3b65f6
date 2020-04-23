@@ -1,0 +1,74 @@
+I"<h1 id="前言">前言</h1>
+
+<p>对于线性回归问题，我们可以对输入和输出建立如下模型</p>
+
+<p><img src="../../../../img/2020-04-09/GD_1.PNG" alt="" /></p>
+
+<p>其损失函数可以表示为</p>
+
+<p><img src="../../../../img/2020-04-09/GD_2.PNG" alt="" /></p>
+
+<p>我们通过让损失函数达到最小来求解线性回归问题的最优解。其闭式解为</p>
+
+<p><img src="../../../../img/2020-04-09/GD_3.PNG" alt="" /></p>
+
+<p>在数据量非常大的时候，矩阵求逆会占用大量的计算资源，让通过闭式方程求解变得不可行。为此引入梯度下降法。</p>
+
+<h1 id="1数学原理">1.数学原理</h1>
+
+<h2 id="11梯度下降法">1.1梯度下降法</h2>
+
+<p>梯度下降法的原理非常简单。若一个凸函数存在最小值，则任意选定一个定义域内的点进行迭代，每步迭代都朝梯度的反方向（函数值下降最快的方向），
+随着迭代次数增多，或逐渐逼近最小值点。</p>
+
+<p>其算法实现如下，</p>
+
+<p><img src="../../../../img/2020-04-09/GD_4.PNG" alt="" /></p>
+
+<p>为了让梯度下降算法可以更好的收敛到最小值点，需要对迭代步长
+$\alpha$
+做一些限制，一般情况下，会取
+$\alpha\in(0,1).$</p>
+
+<p>在更严格的数学证明中，可以证明选取</p>
+
+<script type="math/tex; mode=display">\alpha\in(0,\frac{2}{L})</script>
+
+<p>时，梯度下降法可以线性收敛到极小值点。其中
+$L$
+为函数的 Lipschitz 常数。</p>
+
+<h2 id="12凸函数">1.2凸函数</h2>
+
+<p>线性回归中的损失函数是一个二范数的形式，二范数中是一个仿射函数。根据凸函数的性质可以证明损失函数是一个凸函数。</p>
+
+<h1 id="2算法实现">2.算法实现</h1>
+
+<h2 id="21数据标准化">2.1数据标准化</h2>
+
+<p>在进行训练之前一般会将数据归一化，在例程中使用了极大极小归一化。</p>
+
+<h2 id="22选取迭代步长">2.2选取迭代步长</h2>
+
+<p>接下来选取迭代步长</p>
+
+<script type="math/tex; mode=display">f(\mathbf{w})=\frac{1}{n}\|\mathbf{y}-\mathbf{\overline{X}w}\|^2</script>
+
+<script type="math/tex; mode=display">\nabla f(\mathbf{w})=\frac{2}{n}\mathbf{\overline{X}^{\top}}(\mathbf{\overline{X}w}-\mathbf{y})</script>
+
+<script type="math/tex; mode=display">\|\nabla f(\mathbf{a})-\nabla f(\mathbf{b})\|=\|\frac{2}{n}\mathbf{\overline{X}^{\top}\overline{X}}(\mathbf{a}-\mathbf{b})\|\leq\|\frac{2}{n}\mathbf{\overline{X}^{\top}\overline{X}}\|\|\mathbf{a}-\mathbf{b}\|.</script>
+
+<p>据此选取</p>
+
+<script type="math/tex; mode=display">L=\frac{2}{n}\mathbf{\overline{X}^{\top}\overline{X}}\|</script>
+
+<p>矩阵范数即为其最大特征值（matlab中有求特征值的函数，若矩阵可逆，也可以求近似最大特征值）。据此可以获得迭代步长。</p>
+
+<h5 id="tips">tips</h5>
+
+<p>训练数据稀疏的情况下，在Matlab中使用稀疏矩阵乘法会更快。</p>
+
+<blockquote>
+  <p>最后附上GitHub：<a href="https://github.com/zht1999/GD_regression">https://github.com/zht1999/GD_regression</a></p>
+</blockquote>
+:ET

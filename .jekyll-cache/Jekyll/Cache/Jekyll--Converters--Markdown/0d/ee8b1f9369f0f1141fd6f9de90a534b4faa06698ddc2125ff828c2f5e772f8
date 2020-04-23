@@ -1,0 +1,54 @@
+I"<blockquote>
+  <p>Huffman编码是二叉树的典型应用之一。可对文件进行编码，压缩文件。程序可实现的功能有：以输出菜单形式可供选择打印哈夫曼树、选择指定文件压缩、解压指定文件。压缩后及解压后的文件均会保存于程序路径。</p>
+</blockquote>
+
+<p>哈夫曼编码也被称作最优码。在代码中，我把压缩后码生成的流文件，达到了真正意义上的压缩。用C/C++完成。</p>
+
+<blockquote>
+  <p>需要用到的知识有C/C++、二叉树操作、哈夫曼编码</p>
+</blockquote>
+
+<h1 id="代码阐释">代码阐释</h1>
+
+<p>实验中的主要数据结构为储存哈夫曼数结点的结构体，其定义为：<br />
+typedef struct {<br />
+	TElemType data;<br />
+	WeightType weight; // 叶子权值的类型<br />
+	int parent, lchild, rchild; // 三叉静态链表<br />
+} HTNode, *HuffmanTree;<br /></p>
+
+<p>程序中的主要函数有<br />
+1.选取哈夫曼数HT中权值最小的两个点的函数，原型为void Select(HuffmanTree HT, int s, int &amp;l, int &amp;r)<br />
+输入存储哈夫曼树叶子结点的数组HT，当前数组存储的有效长度s，输出最小权值点的下标l，r。<br />
+算法流程：遍历数组，记录当前最小值，与当前数值比较并记录相对小的值<br />
+算法复杂度为O(s)<br />
+2.读取文件并建立字符出现频率的数组的函数，函数原型为void ReadFile(char fc[], int fi[], int &amp;n,int &amp;sum)<br />
+输入字符数组与储存字符出现频率的数组地址，数组有效长度，输出储存字符信息的数组，字符总数<br />
+算法流程：遍历读取文件字符，并与当前数组内字符比较，若当前数组不存在此字符，则依次存储<br />
+3.创建哈夫曼树的函数，原型为void CreateHuffmanTree(HuffmanTree &amp;HT, char fc[], int fi[], int n)<br />
+输入存储哈夫曼数叶子节点的数组，存储文件字符信息的数组，输出完整哈夫曼数的数组<br />
+算法流程：遍历选取当前数组内权值最小的两个点，构成一个新的结点，直至数组填满<br />
+算法复杂度O(n)<br />
+4.创建哈夫曼编码的函数，函数原型为void HuffmanCoding(HuffmanTree HT, char <em>*&amp;HC, int n)void Coding(HuffmanTree HT, char **&amp;HC, int root, SqStack &amp;S)<br />
+输入哈夫曼数组，储存哈夫曼码的数组首地址，数组长度，输出存储哈夫曼码的数组<br />
+算法流程：通过递归调用Coding函数向左拐计为0，右拐即为1，以字符串形式存储至HC中<br />
+算法复杂度O(nlogn)<br />
+5.压缩文件的函数，原型为void ChangeFile(HuffmanTree HT, char **HC, int n,char name[],int &amp;csum)<br />
+输入哈夫曼数组，哈夫曼码数组，数组长度，压缩文件名，输出压缩文件<br />
+算法流程：从源文件读取字符，通过哈夫曼码将其转换为二进制数，通过位操作写入压缩文件中<br />
+6.解压文件的函数，函数原型为void Decoprass(HuffmanTree HT, char **HC, int n,char name2[], char name1[],int sum)<br />
+输入哈夫曼树组，哈夫曼码数组，数组长度，压缩文件名，解压文件名，字符数<br />
+算法流程：从压缩文件读取字节，通过位操作在哈夫曼数中进行遍历，找到字符后，写入解压文件<br />
+7.打印哈夫曼树的函数，原型为void print(HuffmanTree HT, char **HC, int cur, int depth,int</em> &amp;dep,int count)void PrintHT(HuffmanTree HT,char **HC , int n)<br />
+输入哈夫曼数数组，当前所在数组位置，当前深度，左右孩子标志位count，深度标志位数组dep，打印哈夫曼树<br />
+算法流程：通过中序遍历哈夫曼树，在dep数组中储存当前是否打印之前分支结点位置的竖线，横向打印哈夫曼树。<br /></p>
+
+<h1 id="试验结果">试验结果</h1>
+
+<p>原文件为19KB，压缩后变为12KB
+<img src="../../../../img/2018-11-10/Huffman_1.png" alt="" /></p>
+
+<blockquote>
+  <p>最后附上GitHub：<a href="https://github.com/zht1999/Huffman">https://github.com/zht1999/Huffman</a></p>
+</blockquote>
+:ET

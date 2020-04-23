@@ -1,0 +1,217 @@
+I"<<hr />
+
+<h1 id="0anaconda介绍">0.Anaconda介绍</h1>
+<p>Anaconda指的是一个开源的Python发行版本，包含了许多工具包，除了基本的python和pip，还有做CV的opencv包，web开发的web包，与matlab画图功能相同的matplotlib包以及AI和机器学习会用到的numpy、tensorflow和pytorch。
+除此之外，Anaconda有命令行模式prompt与图形界面navigator，刚上手的时候感觉图像界面真香，慢慢用着要求越来越多的时候发现命令行模式无论在速度上还是功能上都要比图形界面好很多。本文会以命令行模式为例。
+Anaconda比起其他IDE来说不算笨重，创建和管理环境很方便，Anaconda占内存会越来越大是因为下载的安装包越来越多，只要将pkgs中不需要的东西删掉体积就会小很多。
+在Anaconda平台上集成了VS code、jupyter notenook和spyder这些工具，都可以用来编译和调试，可以选择性的安装。</p>
+<hr />
+
+<h1 id="1anaconda环境">1.Anaconda环境</h1>
+<hr />
+
+<h2 id="11why创建不同环境">1.1why创建不同环境</h2>
+<p>初用者肯定会有这样的疑问，在base环境下把所有需要用的包都装上去不就可以了，为什么还要创建那么多不同的环境？
+如果所有安装包需要的版本号都是兼容的，确实可以这样做，可是实际上不同的包对其他包的版本依赖是各不相同的，所以需要创建不同的环境来使用这些工具包。</p>
+<hr />
+
+<h2 id="12默认路径管理环境">1.2默认路径管理环境</h2>
+<h3 id="121创建环境">1.2.1创建环境</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda create -n my_env python=3.7
+</code></pre></div></div>
+<p>-n后跟环境名称
+python=3.7选择python的版本号，如果不加默认安装最新版本
+也可以在创建环境时指定安装包，numpy为一个安装包的名字</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda create -n my_env numpy
+</code></pre></div></div>
+<p>如果需要更多的功能，可以查看，其他命令也可如此</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda create -h
+</code></pre></div></div>
+<p>创建环境时会有如下提示</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda create -n my_env python=3.7
+Collecting package metadata (repodata.json): done
+Solving environment: \
+Warning: &gt;10 possible package resolutions (only showing differing packages):
+  - https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::certifi-2019.11.28-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::setuptools-45.2.0-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::wheel-0.34.2-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::wincertstore-0.2-py37_0
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::wincertstore-0.2-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::certifi-2019.11.28-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::setuptools-45.2.0-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::wheel-0.34.2-py37_0
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::certifi-2019.11.28-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::setuptools-45.2.0-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::wheel-0.34.2-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::wincertstore-0.2-py37_0
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::certifi-2019.11.28-py37_0, https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::wincertstore-0.2-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::setuptools-45.2.0-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::wheel-0.34.2-py37_0
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::certifi-2019.11.28-py37_0, https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::wheel-0.34.2-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::setuptools-45.2.0-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::wincertstore-0.2-py37_0
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::certifi-2019.11.28-py37_0, https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::wheel-0.34.2-py37_0, https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::wincertstore-0.2-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::setuptools-45.2.0-py37_0
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::wheel-0.34.2-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::certifi-2019.11.28-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::setuptools-45.2.0-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::wincertstore-0.2-py37_0
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::wheel-0.34.2-py37_0, https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::wincertstore-0.2-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::certifi-2019.11.28-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::setuptools-45.2.0-py37_0
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::setuptools-45.2.0-py37_0, https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::wheel-0.34.2-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::certifi-2019.11.28-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::wincertstore-0.2-py37_0
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win-64::setuptools-45.2.0-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::certifi-2019.11.28-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::wheel-0.34.2-py37_0, https://mirrors.ustc.edu.cn/anaconda/pkgs/main/win-64::wincertstore-0.2-py37_0
+  ... and othedone
+
+##  Package Plan ## 
+
+  environment location: C:\Users\dell\Anaconda3\envs\my_env
+
+  added / updated specs:
+    - python=3.7
+
+
+The following NEW packages will be INSTALLED:
+
+  ca-certificates    anaconda/pkgs/main/win-64::ca-certificates-2020.1.1-0
+  certifi            anaconda/pkgs/main/win-64::certifi-2019.11.28-py37_0
+  openssl            anaconda/pkgs/main/win-64::openssl-1.1.1d-he774522_4
+  pip                anaconda/pkgs/main/win-64::pip-20.0.2-py37_1
+  python             anaconda/pkgs/main/win-64::python-3.7.6-h60c2a47_2
+  setuptools         anaconda/pkgs/main/win-64::setuptools-45.2.0-py37_0
+  sqlite             anaconda/pkgs/main/win-64::sqlite-3.31.1-he774522_0
+  vc                 anaconda/pkgs/main/win-64::vc-14.1-h0510ff6_4
+  vs2015_runtime     anaconda/pkgs/main/win-64::vs2015_runtime-14.16.27012-hf0eaf9b_1
+  wheel              anaconda/pkgs/main/win-64::wheel-0.34.2-py37_0
+  wincertstore       anaconda/pkgs/main/win-64::wincertstore-0.2-py37_0
+
+
+Proceed ([y]/n)? y
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+# 
+#  To activate this environment, use
+# 
+#      $ conda activate my_env
+# 
+#  To deactivate an active environment, use
+# 
+#      $ conda deactivate
+</code></pre></div></div>
+<p>resolutions后面跟的是下载路径，由于我添加了几个国内的镜像，所以下载地址为清华、中科大和阿里云的镜像。package plan后面会显示下载包的信息，由于我的/pkgs文件夹中已经有下载过的这些包了，所以不会再下载。这些安装包是这个环境基础的包。解读提示信息当安装出bug/bugs的时候是很重要的，可以帮助你很快的定位到出错的源头，即使解决不了，也不用浪费时间瞎忙活。
+建立环境后可以查看以下当前的环境，可以看到my_env已经建立，*指向当前所在环境</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda info --envs
+#  conda environments:
+# 
+base                  *  C:\Users\dell\Anaconda3
+OpenCV                   C:\Users\dell\Anaconda3\envs\OpenCV
+my_env                   C:\Users\dell\Anaconda3\envs\my_env
+tensorflow_2             C:\Users\dell\Anaconda3\envs\tensorflow_2
+web                      C:\Users\dell\Anaconda3\envs\web
+                         E:\local\pytorch
+</code></pre></div></div>
+<h3 id="122进入环境激活环境">1.2.2进入环境/激活环境</h3>
+<p>用以下命令，my_env为环境名字</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda activate my_env
+(my_env) C:\Users\dell&gt;
+</code></pre></div></div>
+<h3 id="123退出环境">1.2.3退出环境</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(my_env) C:\Users\dell&gt;conda deactivate
+(base) C:\Users\dell&gt;
+</code></pre></div></div>
+<h3 id="124删除环境">1.2.4删除环境</h3>
+<p>注意删除my_env时要先退出my_env</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda remove -n my_env --all
+</code></pre></div></div>
+<hr />
+
+<h2 id="13指定路径管理环境">1.3指定路径管理环境</h2>
+<h3 id="131创建环境">1.3.1创建环境</h3>
+<p>E:\local\my_env_2为环境路径</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda create --prefix=E:\local\my_env_2 python=3.7
+</code></pre></div></div>
+<p>此时所有环境为</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>base                  *  C:\Users\dell\Anaconda3
+OpenCV                   C:\Users\dell\Anaconda3\envs\OpenCV
+my_env                   C:\Users\dell\Anaconda3\envs\my_env
+tensorflow_2             C:\Users\dell\Anaconda3\envs\tensorflow_2
+web                      C:\Users\dell\Anaconda3\envs\web
+                         E:\local\my_env_2
+                         E:\local\pytorch
+</code></pre></div></div>
+<p>发现新创建的环境没有名字，要通过路径来访问</p>
+<h3 id="132激活环境">1.3.2激活环境</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda activate E:\local\my_env_2
+(E:\local\my_env_2) C:\Users\dell&gt;
+</code></pre></div></div>
+<h3 id="133删除环境">1.3.3删除环境</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda remove --prefix=E:\local\my_env_2 --all
+</code></pre></div></div>
+<hr />
+
+<h1 id="2安装包">2.安装包</h1>
+<hr />
+
+<h2 id="20设置镜像源">2.0设置镜像源</h2>
+<p>可以添加多个镜像源，中科大源、清华源、阿里源都挺好用</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge 
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main 
+conda config --set show_channel_urls yes
+</code></pre></div></div>
+<p>pip设置镜像源可以在pip.ini中修改，我的pip.ini位于C:\Users\dell\AppData\Roaming\pip，配置了阿里云的镜像</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[global]
+index-url=http://mirrors.aliyun.com/pypi/simple/
+ 
+[install]
+trusted-host=mirrors.aliyun.com
+</code></pre></div></div>
+<hr />
+
+<h2 id="21升级包的版本">2.1升级包的版本</h2>
+<p>运行以下命令可以将python包升级到最新版本</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda update -n my_env python
+</code></pre></div></div>
+<hr />
+
+<h2 id="22安装包">2.2安装包</h2>
+<h3 id="221conda安装">2.2.1conda安装</h3>
+<p>可以指定安装包的版本号，也可以不指定，默认安装最新版本，需要在相关网站上根据自己的硬件配置选择合适的版本号</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda install tensorflow=1.13.1
+</code></pre></div></div>
+<h3 id="222pip安装">2.2.2pip安装</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;pip install tensorflow==1.13.1
+</code></pre></div></div>
+<h3 id="223安装包列表">2.2.3安装包列表</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda list
+</code></pre></div></div>
+<h3 id="224删除缓存中无用包">2.2.4删除缓存中无用包</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda clean -p
+(base) C:\Users\dell&gt;conda clean -t
+</code></pre></div></div>
+<hr />
+
+<h2 id="23删除包">2.3删除包</h2>
+<p>指定环境中删除包(pip)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(base) C:\Users\dell&gt;conda remove -n my_env pip
+</code></pre></div></div>
+<hr />
+
+<h2 id="24安装jupyterspyder">2.4安装jupyter、spyder</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(my_env) C:\Users\dell&gt;pip install jupyter
+(my_env) C:\Users\dell&gt;pip install spyder
+</code></pre></div></div>
+<hr />
+
+<h1 id="3anaconda-navigator">3.anaconda navigator</h1>
+<hr />
+
+<h2 id="30介绍">3.0介绍</h2>
+<p>navigator中可以创建删除环境，搜索安装包，指定安装包的版本，在指定环境中安装并打开jupyter等
+<img src="https://upload-images.jianshu.io/upload_images/21104637-78f61ecbe072dbe3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="navigator界面" /></p>
+<hr />
+
+<h2 id="31管理环境">3.1管理环境</h2>
+<p>进入环境界面可以看到当前所在环境和环境列表，下方红色框选项为创建、克隆、导入和删除环境
+<img src="https://upload-images.jianshu.io/upload_images/21104637-4838e469bd5dc8db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="envs" /></p>
+<hr />
+
+<h2 id="32安装包">3.2安装包</h2>
+<p>图中下拉列表可以查看已安装未安装的包，channel可以添加源，upadate可以更新资源，搜索框可以查找需要的包。包的右端为版本号，蓝色标志为可以更新的包。
+<img src="https://upload-images.jianshu.io/upload_images/21104637-e7a04163b18344d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pkgs" />
+右键选中包，可以选择删除或安装指定版本
+<img src="https://upload-images.jianshu.io/upload_images/21104637-146c32ff37abb394.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pkg_version" /></p>
+<hr />
+
+<h2 id="33jupyterspyder">3.3jupyter、spyder</h2>
+<p>选择环境后依次点击install、launch即可使用jupyter和spyder
+<img src="https://upload-images.jianshu.io/upload_images/21104637-4eefdfc3ead9c2e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="launch" /></p>
+<hr />
+
+:ET

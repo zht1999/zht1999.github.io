@@ -1,0 +1,227 @@
+I"],<hr />
+
+<p>2020.03.09更新
+添加缩进，页边距，子图设置</p>
+<hr />
+
+<p>LaTex和HTML很相似，都是用标记语言写好文档，交给特定的编译器渲染，LaTex生成的是pdf文档，HTML生成的是网页</p>
+<hr />
+
+<h1 id="文档基本结构">文档基本结构</h1>
+<hr />
+
+<h2 id="1基本结构">1.基本结构</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%设置文档类型，相当于一个模板
+\documentclass{article}%book ,report ,letter
+%引用宏包，相当于编程语言中的库或者头文件
+\usepackage{ctex}%引入中文包，使得中文可以正常显示
+%导言区  标明题目与作者
+\title{通信原理作业——第一周}
+\author{XXX}
+%可以选择设置特定日期
+%\date{}用来不显示日期信息
+\date{\today}%显示当天的日期
+% 正文区（文稿区）
+\begin{document}
+	\maketitle %让导言区内容在正文区显示
+    你好 世界！
+    hello world!\\%latex不会在pdf中根据.tex文件中代码换行实现换行，需要使用双反斜杠换行。
+    %但如果文本长度超过一行时，会自动换行
+    通信原理随机过程通信原理随机过程通信原理随机过程通信原理随机过程通信原理
+    随机过程通信原理随机过程通信原理随机过程通信原理随机过程通信原理随机过程 
+\end{document} 
+</code></pre></div></div>
+<p>文档基本结构如上，注释里已经解释了。主要要注意\usepackage{}就和python导入包或者C语言包含头文件一样，需要用到某些功能时要添加宏包，常用到的宏包有</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\usepackage{ctex}%引入中文包，使得中文可以正常显示
+\usepackage{enumerate}%列表
+\usepackage{amsthm,amsmath,amssymb}%数学公式排版
+\usepackage{subfigure}%设置多个图片格式(子图)
+\usepackage{mathrsfs}%设置英文花体
+\usepackage{indentfirst}%设置首行缩进
+\usepackage{geometry}%设置页面大小
+</code></pre></div></div>
+<h1 id="11首行缩进">1.1首行缩进</h1>
+<p>先导入宏包，后可以试试在段落首部加上下面这个命令</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\par\setlength{\parindent}{2em}  在matlab中
+</code></pre></div></div>
+<h1 id="12页面大小">1.2页面大小</h1>
+<p>latex默认的pdf边距总觉得有点大，公式写不了多长就会超出边框，如果要自己设置页边距，可以先导入宏包，然后在导言区加上</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\geometry{a4paper,scale=0.8}%可以设置纸张大小和页面大小，应该还可以设置其他的参数，比如width之类的
+</code></pre></div></div>
+<hr />
+
+<h2 id="2常用符号">2.常用符号</h2>
+<h3 id="21-">2.1 %</h3>
+<p>%（百分号）用来添加注释</p>
+<h3 id="22--">2.2  \</h3>
+<p>\（反斜杠）是latex中很重要的一个符号，latex中命令都以反斜杠开头，用来区分普通文本和命令。latex命令最好和文本隔开一个空格来区分。latex中的反斜杠有点类似于C语言中的转义符，不过latex中对反斜杠的应用更疯狂。</p>
+<h3 id="23-空格">2.3 空格</h3>
+<p>latex中空格可以用来隔开英文字符，在pdf文档中也会显示。但是对中文不起作用，在中文中加空格需要用到命令\quad。有点类似于HTML文档中使用&lt;pre&gt;标签才能在网页中显示.html文档中的排版。</p>
+<h3 id="24-换行换页">2.4 换行换页</h3>
+<p>换行用”\\”
+换页用”\newpage”</p>
+<h3 id="25-输入数学公式">2.5 输入数学公式</h3>
+<p>使用$符号标志数学公式的起始</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$2^{13}=8192&lt;9999&lt;2^{14}=16384$  %行内公式
+$$2^{13}=8192&lt;9999&lt;2^{14}=16384$$ %公式单独占行
+</code></pre></div></div>
+<h3 id="26-输出特殊字符---------">2.6 输出特殊字符# ,$, %, &amp;, - ,{, }, ^, ~,\</h3>
+<p>输出这些字符需要以下命令</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\# ，\$，\%，\&amp;，\-，\{ ，\}， \^{}， \~{}，
+"$\backslash$"表示"\"
+</code></pre></div></div>
+<p><strong>注意</strong>：这里指的是输出纯文本，在数学公式中情况不一样</p>
+<h3 id="27-其他符号">2.7 其他符号</h3>
+<p>winedt中列出了很多常用的符号、字体类型和函数之类的，没有列并且常用的应该在键盘上都有
+<img src="https://upload-images.jianshu.io/upload_images/21104637-76eb79da770ef475.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="希腊字母" />
+<img src="https://upload-images.jianshu.io/upload_images/21104637-a902c302606d1771.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="逻辑符号" />
+<img src="https://upload-images.jianshu.io/upload_images/21104637-886b5bc92fbce72d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="字体" /></p>
+<hr />
+
+<h2 id="3常用功能">3.常用功能</h2>
+<p>常用的功能有列表、表格、各种的公式排版技巧，winedt图形化界面中有许多常用的格式，点击insert-&gt;选中自己需要的格式即可插入到文档中
+<img src="https://upload-images.jianshu.io/upload_images/21104637-b73cdc331e743051.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="insert" /></p>
+<hr />
+
+<h1 id="列表">列表</h1>
+<hr />
+
+<h2 id="1无序列表">1.无序列表</h2>
+<p>点击list-&gt;itemize可以插入无序列表格式，也可以自己键入</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    \begin{itemize}
+      \item 1
+      \item 2
+      \item 3
+    \end{itemize}
+</code></pre></div></div>
+<hr />
+
+<h2 id="2有序列表">2.有序列表</h2>
+<h3 id="21默认标号">2.1默认标号</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    \begin{enumerate}
+      \item 第一行
+      \item 第二行
+      \item 第三行
+    \end{enumerate}
+</code></pre></div></div>
+<p>如上代码输出的标号是有序的，但是是默认的标号格式</p>
+<h3 id="22自定义标号">2.2自定义标号</h3>
+<p>自定义标号格式首先要导入enumerate宏包</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    \begin{enumerate}[(1)]
+      \item 第一行
+      \item 第二行
+      \item 第三行
+    \end{enumerate}
+</code></pre></div></div>
+<p>这样显示出的标号会以(1)(2)(3)排列
+如果起始标号不是以一开始的也可以设置为如下</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    \begin{enumerate}
+    \setcounter{enumi}{3}
+      \item four
+      \item five
+      \item six
+    \end{enumerate}
+</code></pre></div></div>
+<p>如果不需要默认的序列号也可以自己定义不同的序列号</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    \begin{enumerate}
+      \item [1.1]第一行
+      \item [1.10]第二行
+      \item [2.10]第三行
+    \end{enumerate}
+</code></pre></div></div>
+<h3 id="23列表嵌套">2.3列表嵌套</h3>
+<p>列表里面不仅可以套列表，列表项可以是任何东西</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    \begin{enumerate}
+      \item [1.1] 
+        \begin{itemize}
+          \item 1
+          \item 2
+          \item 3
+        \end{itemize}
+      \item [1.10]
+      \item [2.10]
+    \end{enumerate}
+</code></pre></div></div>
+<hr />
+
+<h1 id="表格">表格</h1>
+<p>推荐一个在线表格编辑器https://www.tablesgenerator.com/latex_tables</p>
+<hr />
+
+<h2 id="1tabular">1.tabular</h2>
+<p>tabular可以设置列的对齐方式和竖横线，可以根据需求加。&amp;用来分割单元格</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    \begin{tabular}{|c|c|}%设置对齐方式和竖线，clr分别为中左右对齐。
+      \hline%用来添加横线
+      % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      100 &amp; 101 \\
+      \hline
+      103 &amp; 102 \\
+      \hline
+    \end{tabular}
+</code></pre></div></div>
+<p>利用tabular也可以列竖式，可以设置整数或小数对齐方式</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>           \begin{tabular}{lr}%整数对齐方式
+                &amp;0110 1110\\
+                +&amp;1000 0100\\
+                \hline
+                =&amp;1111 0010
+           \end{tabular}
+</code></pre></div></div>
+<hr />
+
+<h2 id="2table">2.table</h2>
+<p>table可以给表格加名称</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    \begin{table}
+      \centering%对所有元素进行居中操作
+      \caption{我的一个表}%表格名称
+      \begin{tabular}{c|c}
+      \hline
+      % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+      100 &amp; 101 \\
+      103 &amp; 102 \\
+      \hline
+    \end{tabular}
+    \end{table}
+</code></pre></div></div>
+<hr />
+
+<h2 id="3将excel数据导入">3.将excel数据导入</h2>
+<p>可以调用宏包，这里介绍另一种简单方法</p>
+<h3 id="31step1">3.1STEP1</h3>
+<p>将excel表格中数据复制到一文本文档中，用notepad++打开，或者其他有查找替换功能的软件</p>
+<h3 id="32step2">3.2STEP2</h3>
+<p>由于excel编码中单元格用tab隔开，用查找替换将tab全部替换为&amp;，用查找替换将\r全部替换为<br />
+<img src="https://upload-images.jianshu.io/upload_images/21104637-7148fd0d9b7c4609.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="step2" />
+<img src="https://upload-images.jianshu.io/upload_images/21104637-f3553fceb6399bb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="step2" />
+这样直接粘贴到文档中就可</p>
+<hr />
+
+<h1 id="图片">图片</h1>
+<hr />
+
+<p>matlab可以把生成的图片保存为eps文件，放大缩小都可以更清晰。当然也可以插入其他格式图片</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    \begin{figure}[ht]%设置图片位置，h此处，t页顶，b页底，p独立一页
+      \centering%居中
+      \includegraphics[scale=0.5]{fft.eps}%设置图片格式和路径
+      \caption{图一}%不想要名字可以把这一项删掉
+    \end{figure}
+</code></pre></div></div>
+<p>有些时候我们需要一次插入多张图片，进行排列</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>       \begin{figure}[ht]
+                \centering
+                \subfigure{
+                \centering
+                \includegraphics[scale=0.5]{build1.eps}
+                }%如果需要并排排列，在这个子图定义完之后不要加换行，
+%如果需要开始下一排图片，在当前子图后面加一个换行，用键盘敲出一个换行，不是双斜杠
+                \subfigure{
+                \centering
+                \includegraphics[scale=0.5]{build2.eps}
+                }
+      \end{figure}
+</code></pre></div></div>
+<p>大多数时候，图片的布局和我们预期的不一样的原因是因为图片尺寸太大。</p>
+<hr />
+
+<p>公式下节再来</p>
+:ET

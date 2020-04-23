@@ -1,0 +1,25 @@
+I":<blockquote>
+  <p>从国家统计局的数据库爬取1999-2018年的国家人口数，使用sqlite存到本地数据库文件，从本地数据库文件读取数据，使用matplotlib绘制年末总人口-年份条形图与男女人口占比-年份折线图。</p>
+</blockquote>
+
+<h1 id="代码阐释">代码阐释</h1>
+
+<p>在代码中创建了两个类Data_op与Plot_op分别用来实现爬取数据并将其存储到数据库文件中、读取数据库文件中数据并绘图。<br /></p>
+<ol>
+  <li>Data_op<br />
+Data_op用来获取、存储人口数据。其中requ_get用来存放直接访问到的数据，datadict用来存放经过提取之后所需的数据。<br />
+request函数建立访问获取国家统计局数据。需要首先从网站上获取相关参数，包括url、header与参数集m、dbcode、rowcode、colcode、dfwds以及时间戳k，dfwads是爬去正确数据的关键。dfwads在不同界面时会有一个关键字，在此界面上进行操作时会在此界面基础上产生新的关键字，所以在爬取数据时，应先与此界面建立对话后再爬取本页面的数据。requests.session()用来建立一个对话。<br />
+data_tract函数提取访问到的dict中有用的数据。访问到的数据一个node内部架构为{‘code’: ‘zb.A0O0K01_sj.2018’, ‘data’: {‘data’: 0, ‘dotcount’: 2, ‘hasdata’: False, ‘strdata’: ‘’}, ‘wds’: [{‘valuecode’: ‘A0O0K01’, ‘wdcode’: ‘zb’}, {‘valuecode’: ‘2018’, ‘wdcode’: ‘sj’}]}，使用’wds’中两个’valuecode’分别作为年份与类别的分类标签，’hasdata’表示数据的有效性，’data’为所需数据。根据’hasdata’提取’data’至datadict中，以’valuecode’值作为dict索引。<br />
+data_write函数将datadict中的数据写入数据库文件中。使用sqlite3.connect函数建立db文件，使用c.execute函数建立表并设置表内格式，self.c.execute(“INSERT INTO DATA VALUES(?,?,?,?,?,?)”,(int(year),single[“A030101”],single[“A030102”]，single[“A030103”],single[“A030104”],single[“A030105”]))可以格式化写入表，修改完成后，必须commit提交后才能完成修改，之后close关闭db文件。<br /></li>
+  <li>Plot_op<br />
+Plot_op用来读取数据并绘图。其中datadict用来存放读取到的按年份为索引的数据，yearlist存放年份，其他list类似。<br />
+data_read函数用来读取数据库文件中的数据。使用select功能c.execute(“SELECT year,total,male,female,urban,rural from DATA”)读取数据库中指定项目的数据，使用append函数向list中添加数据。<br />
+total_plot函数用来作图全国总人口-年份图。plt.subplots用来生成一个图像，np.arange用来生成index数组，ax.bar函数可以传递两个坐标轴对应的值、颜色透明度、宽度、标签等参数，set_label可以设置标签，set_xticklabels可以设置坐标轴的标签值，fig.set_size_inches函数设置图像大小，plt.rcParams[‘font.sans-serif’]=[‘SimHei’]可以方便的改变所显示字体解决不能显示中文的问题，plt.ylim可以设置坐标轴显示的范围使差异更加明显，plt.grid设置网格线使比较数据大小更方便，使用fig.savefig可以在show之前保存图片。<br />
+gender_plot函数用来绘制男女人口占比-年份图。代码实现与total_plot类似，区别在于用plt.plot函数传递参数绘制折线图，并在一张图中绘制两条不相干图线。<br />
+无需连接网络），并弹出子窗口如下。点击选项按钮之后窗口底部会显示正确信息和题目解释，若做对题目，标记题目“id”为“right”，并删除本地图片缓存。点击“下一题”可以切换题目，点击“结束答题”可随时结束，结束后会更新本地错题文档。如果错题已做完，会弹出提示框。若还没有做错过题，点击“复习错题”时会弹窗显示信息。<br /></li>
+</ol>
+
+<blockquote>
+  <p>最后附上GitHub：<a href="https://github.com/zht1999/py_work2">https://github.com/zht1999/py_work2</a></p>
+</blockquote>
+:ET

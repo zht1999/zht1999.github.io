@@ -1,0 +1,38 @@
+I"�
+<p>建立ustc个人主页可以参考一下<a href="http://ustcnet1.ustc.edu.cn/fwzn/wzjs/201503/t20150324_212955.html">http://ustcnet1.ustc.edu.cn/fwzn/wzjs/201503/t20150324_212955.html
+</a>&lt;hr/&gt;</p>
+<h2 id="1拥有ustc邮箱账户">1.拥有ustc邮箱账户</h2>
+<p>这一点不必多说，ustcer在入学时就会拥有自己的邮箱账户</p>
+<h2 id="2个人主页域名">2.个人主页域名</h2>
+<p>学校为每个学生分配300M的空间，教工为700M。个人主页网络地址形式为<a href="http://home.ustc.edu.cn/~username">http://home.ustc.edu.cn/~username </a>，username即为邮箱的用户名
+例如：邮箱为XXX@mail.ustc.edu.cn，那么用户名为XXX，个人主页域名为http://home.ustc.edu.cn/~XXX</p>
+<h2 id="3ftp功能">3.ftp功能</h2>
+<p>用户可以使用FTP客户端程序访问系统，在本机的资源管理器中键入<a href="ftp://home.ustc.edu.cn">ftp://home.ustc.edu.cn</a>或者<a href="ftp://202.38.64.11/">ftp://202.38.64.11</a>，在windows操作系统中如下
+<img src="https://upload-images.jianshu.io/upload_images/21104637-15ca57484a7ab7a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ftp功能" />
+在弹出窗口中输入邮箱的用户名和密码就可以开通自己的空间了</p>
+<h2 id="4建立个人主页">4.建立个人主页</h2>
+<ul>
+  <li>首先在自己的主目录下新建public_html（全小写）目录，再将个人主页的内容全部上载到public_html目录下 
+<img src="https://upload-images.jianshu.io/upload_images/21104637-61ed4a761ce5fe08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="public_html" /></li>
+  <li>主页的第一个文件是index.html（全小写），网站访问会从index进入(下面会介绍如何建立html)
+<img src="https://upload-images.jianshu.io/upload_images/21104637-d541a869065347be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="index.html" />
+建立好html文件后，从浏览器中访问自己的域名就可以看到自己的个人主页了
+<img src="https://upload-images.jianshu.io/upload_images/21104637-28ba136776cb78b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="浏览器显示" />
+    <h2 id="5建立html文件">5.建立html文件</h2>
+    <p>设计网页就是编辑html文件的过程，简单的一个html文件内容如下
+```</p>
+  </li>
+</ul>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>我的个人主页</title>
+</head>
+<body>
+    <p>这是我的个人主页</p>
+</body>
+</html>
+<p>```
+记事本、microsoft vs等软件都可以编辑html文件，如果对html有兴趣可以点击我的学习笔记啊！
+<a href="https://www.jianshu.com/u/cfeafd62a1fc">https://www.jianshu.com/u/cfeafd62a1fc</a></p>
+:ET

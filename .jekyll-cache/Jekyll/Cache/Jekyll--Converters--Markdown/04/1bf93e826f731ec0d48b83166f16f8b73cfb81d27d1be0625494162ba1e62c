@@ -1,0 +1,53 @@
+I"q<hr />
+
+<h1 id="feel">Feel</h1>
+
+<p>由于疫情影响只能在家上网课，交作业得要电子版，其实可以手写拍照，不过我借着这个机会试用了一下LaTex。LaTex安装一点也不复杂，只是Texlive安装要挺长时间，安装好Texlive后我用了Texstudio更方便编辑一点，查看和编辑的界面在一起，很不错。由于过于小白，去找了一些教程，我比较喜欢文字版的教程，看了一些发现，大部分都讲的有点多或者是有点不清楚。无意中发现一个<a href="https://www.bilibili.com/video/av8289684?p=2">B站的视频</a>（B站真乃学习圣地），发现讲的挺不错，讲的东西都挺实用，就是版本有点老并且没有人去整理过文字的笔记。视频里用的是Winedt，我又去装了一个winedt10.3，这个也不错，图形化界面做的对新手很友好，不过winedt没有内置的pdf阅读器，需要关联本机的pdf阅读器，但我在关联Adobe时winedt没法关闭pdf文件，尝试各种办法也没有解决，干脆就又装了一个轻量级pdf阅读器suamtra，问题解决。用LaTex写了一天作业，发现效率极低，绝大多数时间在debug，大部分的bug都出现在编辑公式的时候，虽然用Tex写公式确实比word要快，但是对不熟悉命令的新手来说，我还是感觉比word要慢不少。终于还是用winedt把作业写完了，来整理一下安装和使用LaTex的知识。
+20200309更新
+现在用起来已经很快了，大概目前最限制我的是一直要中英文切换和我的英文打字速度了（如果公式不是特别复杂）。</p>
+<hr />
+
+<h1 id="安装">安装</h1>
+<hr />
+
+<h2 id="1texlive">1.Texlive</h2>
+<h3 id="11下载安装包">1.1下载安装包</h3>
+<p>可以去texlive官网下载，不过这里建议在<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/">清华镜像</a>下载https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/，速度比较快<img src="https://upload-images.jianshu.io/upload_images/21104637-6058c1dfd748b174.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tuna" />我下载的是20190410版本</p>
+<h3 id="12解压并安装">1.2解压并安装</h3>
+<p>选中下载好的文件解压，<img src="https://upload-images.jianshu.io/upload_images/21104637-ef9456e8106c83ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="bat" />
+解压后选中install-windows文件双击或以管理员身份运行，会弹出安装界面
+<img src="https://upload-images.jianshu.io/upload_images/21104637-eb31e6c018de0b01.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="install" />
+可以简单的修改一下安装路径，也可以选择点击advaced进行其他的设置，设置完成后点击安装就会开始一条一条显示安装进度，耐心等待半个小时，就安装完成了。可以点开看一下texlive的界面，过于简洁，一般会选择安装其他用来编辑的软件，比如texstudio、winedt
+<img src="https://upload-images.jianshu.io/upload_images/21104637-ea4dce96cefe3557.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="texlive" /></p>
+<hr />
+
+<h2 id="2texstudio">2.TexStudio</h2>
+<h3 id="21下载安装包">2.1下载安装包</h3>
+<p>可以去官网下载http://texstudio.sourceforge.net/，速度很慢，或者在国内的一些什么不是很靠谱的软件下载网站下载（不保证安全性，可能会下到很多绑定软件）。当然也可以拷贝同学的安装包。</p>
+<h3 id="22安装texstudio">2.2安装texstudio</h3>
+<p>点击exe文件傻瓜式安装</p>
+<h3 id="23配置texstudio">2.3配置texstudio</h3>
+<p>点击option-&gt;configure texstudio-&gt;general，将language设置为中文zh-cn。如果要用编辑中文文档的话，建议将 构建-&gt;编辑器设置为Xelatex，也可以设置默认的pdf查看器，不过texstudio有内置pdf查看器。在编辑器中可以设置显示行号
+<img src="https://upload-images.jianshu.io/upload_images/21104637-76f3eca9839d5294.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="configure" /></p>
+<hr />
+
+<h2 id="3winedt">3.WinEdt</h2>
+<h3 id="31安装">3.1安装</h3>
+<p>WinEdt也可以去官网下，但这里就不建议去官网龟速下载了，在国内的很多软件管理里面就可以找到winedt，点击下载就可以了。
+<img src="https://upload-images.jianshu.io/upload_images/21104637-4117f7a5b7636057.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tecent" />
+也可以去<a href="https://www.lizhi.io/review/40006878">数码荔枝</a>下载，大家也都看到了winedt是要付费的，可以去数码荔枝淘宝店买一套回来。或者网上可以搜到很多po   jie的方法，装好之后用po  jie码去注册一下就可以
+WinEdt安装也是傻瓜式。</p>
+<h3 id="32配置">3.2配置</h3>
+<p>winedt没有内置pdf阅读器，得关联到本机pdf reader，但关联Adobe的pdf reader会出现不能关闭的问题，网上有各路大神的解决方法，我试了很多但都没有成功。只得接受另一派的建议，安装sumatra阅读器，这个软件很小，虽然界面有点简陋，但功能够用
+<img src="https://upload-images.jianshu.io/upload_images/21104637-916a5b9dd2cb49ba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="sumatra" />
+可以在国内下载
+<img src="https://upload-images.jianshu.io/upload_images/21104637-89a4f14959e57ef8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="tecent" />
+安装完成后，打开winedt点击option-&gt;execution model-&gt;pdf viewer，点击第一个像放大镜的哪个东西，将pdf viewer的路径定向到sumatra的exe文件，然后点击apply，再点ok
+<img src="https://upload-images.jianshu.io/upload_images/21104637-25a1de3ad0e40877.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="viewer" />
+再回到Console（如果要编辑中文文档选中Xelatex），选中start viewer-&gt;forward search，apply to all，ok。这样就配置好了。
+<img src="https://upload-images.jianshu.io/upload_images/21104637-63c19bd24e3b3b59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="console" />
+编译文档如果是中文，在图中所示界面选中Xelatex，点击即可编译<img src="https://upload-images.jianshu.io/upload_images/21104637-e09aebf020384928.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="compile" />
+下一节会以winedt10.3为环境整理一下编辑文档的知识</p>
+<hr />
+
+:ET
